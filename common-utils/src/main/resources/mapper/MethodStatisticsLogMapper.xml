@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.utils.methodLog.mapper.MethodStatisticsLogMapper">
+
+ <insert id="batchInsertLog" parameterType="java.util.ArrayList">
+    INSERT INTO `qy_method_statistics_log_${currentDate}` 
+    (    
+    	server_name, 
+    	method_name, 
+    	method_count, 
+        method_sum_time, 
+        statistics_interval, 
+        create_time
+      )
+    VALUES 
+   <foreach collection="logs" index="index" item="item" separator=",">
+     ( 
+     	 #{item.serverName,jdbcType=VARCHAR}, 
+     	 #{item.methodName,jdbcType=VARCHAR}, 
+     	 #{item.methodCount,jdbcType=INTEGER}, 
+         #{item.methodSumTime,jdbcType=INTEGER}, 
+         #{item.statisticsInterval,jdbcType=INTEGER}, 
+         now()
+      )
+   </foreach>
+  </insert>
+
+</mapper>
