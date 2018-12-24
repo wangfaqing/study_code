@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class MethodStatisicParams {
+public class MethodStatisticParams {
 	private AtomicLong requestCount = new AtomicLong();
 
 	private Map<String, AtomicLong> methodCountMap = new ConcurrentHashMap<>();

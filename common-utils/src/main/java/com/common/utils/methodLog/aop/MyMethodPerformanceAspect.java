@@ -1,7 +1,7 @@
 package com.common.utils.methodLog.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.common.utils.methodLog.domain.MethodStatisicParams;
+import com.common.utils.methodLog.domain.MethodStatisticParams;
 import com.common.utils.methodLog.entity.MethodLog;
 import com.common.utils.methodLog.entity.MethodStatisticsLog;
 import com.common.utils.methodLog.executeBuffer.MyDelayExecuteBuffer;
@@ -34,7 +34,7 @@ public class MyMethodPerformanceAspect implements Runnable {
 	@Resource(name = "methodStatisticsExecuteBuffer")
 	private MyDelayExecuteBuffer<MethodStatisticsLog> methodStatisticsExecuteBuffer;
 
-	private MethodStatisicParams controllerParameter = new MethodStatisicParams();
+	private MethodStatisticParams controllerParameter = new MethodStatisticParams();
 
 	@PostConstruct
 	public void start() {
